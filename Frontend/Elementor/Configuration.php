@@ -16,14 +16,7 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
 }
 
-use BlogKit\Frontend\Elementor\Inc\Functions;
 use BlogKit\Frontend\Elementor\Assets\Assets;
-use BlogKit\Frontend\Elementor\Inc\PostViewTracker;
-use BlogKit\Frontend\Elementor\Globals\WrapperURL;
-use BlogKit\Frontend\Elementor\Globals\CustomCSS;
-use BlogKit\Frontend\Elementor\Globals\CSSTransform;
-use BlogKit\Frontend\Elementor\Globals\NestedTabsExtend;
-// use BlogKit\Frontend\Elementor\Globals\PreLoader; // Optional
 
 /**
  * Class Configuration
@@ -35,14 +28,7 @@ use BlogKit\Frontend\Elementor\Globals\NestedTabsExtend;
  */
 class Configuration
 {
-    protected $functions;
     protected $assets;
-    protected $post_view_tracker;
-    protected $wrapper_url;
-    protected $custom_css;
-    protected $css_transform;
-    protected $nested_tabs_extend;
-    // protected $pre_loader; // optional if needed later
 
     /**
      * Plugin version.
@@ -176,15 +162,8 @@ class Configuration
      * Initialize classes.
      */
     public function classes_init()
-    {
-        $this->functions = new Functions();
+    {   
         $this->assets = new Assets();
-        $this->post_view_tracker = new PostViewTracker();
-        $this->wrapper_url = new WrapperURL();
-        $this->custom_css = new CustomCSS();
-        $this->css_transform = new CSSTransform();
-        $this->nested_tabs_extend = new NestedTabsExtend();
-        // $this->pre_loader = new PreLoader(); // optional
     }
 
     /**
@@ -204,13 +183,9 @@ class Configuration
     {
         $namespace_base = '\BlogKit\Frontend\Elementor\Widgets\\';
 
-        $widgets = [
-            // Example widgets (rename & add your own!)
-            'blogkit_animated_text_widget' => 'AnimatedText\Main',
-            'blogkit_post_grid_widget' => 'PostGrid\Main',
-            'blogkit_author_bio_widget' => 'AuthorBio\Main',
-            'blogkit_breadcrumb_widget' => 'Breadcrumb\Main',
-            // Add more here...
+        $widgets = [            
+            'blogkit_animated_text_widget' => 'BlogGrid\Main',
+           
         ];
 
         foreach ($widgets as $option_name => $widget_class) {

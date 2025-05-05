@@ -13,6 +13,9 @@
  * Requires at least: 5.8
  * Requires PHP: 8.0
  * namespace: BlogKit
+ * Requires Plugins: elementor
+ * 
+ * @package BlogKit
  */
 
 // Exit if accessed directly.
