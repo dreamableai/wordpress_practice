@@ -65,7 +65,7 @@ class Manager
      */
     public function init()
     {
-        $this->admin_manager = new AdminManager();
+       // $this->admin_manager = new AdminManager();
         $this->frontend = new Frontend();
     }
 }

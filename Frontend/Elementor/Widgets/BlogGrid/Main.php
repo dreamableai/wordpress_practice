@@ -5,8 +5,6 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
-use Elementor\Group_Control_Image_Size;
-use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 
@@ -164,7 +162,7 @@ class Main extends Widget_Base
      */
     private function get_blogkit_categories()
     {
-        $categories = get_blogkit_categories(['hide_empty' => false]);
+        $categories = get_categories(['hide_empty' => false]);
         $cats = [];
         if ($categories) {
             foreach ($categories as $category) {
