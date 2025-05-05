@@ -1,0 +1,25 @@
+
+/*----------------------Blog Grid--------------------*/
+.blogkit-contents {
+    background: #fff;
+    margin-bottom: 30px;
+  }
+  
+  .blogkit-contents .blog-title-standard {
+    font-size: 18px;
+    padding-top: 17px;
+  }
+  
+  .blogkit-contents .postmeta {
+    padding: 5px 15px 10px 15px;
+    margin: 5px 0 0 0;
+  }
+  
+  .blogkit-contents .abcsocialshare {
+    width: 52%;
+  }
+  
+  .blogkit-contents .blogmore-standard {
+    width: 35%;
+  }
+  

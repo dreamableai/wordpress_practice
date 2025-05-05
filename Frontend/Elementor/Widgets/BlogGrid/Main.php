@@ -27,7 +27,7 @@ class Main extends Widget_Base
 
     public function get_categories()
     {
-        return ['blogkit-category'];
+        return ['blogkit'];
     }
 
     public function get_keywords()
