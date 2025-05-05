@@ -1,0 +1,12 @@
+/vendor/
+/node_modules/
+.DS_Store
+package-lock.json
+.env
+.env.local
+.env.test
+.env.development
+.env.production
+.env.staging
+.env.example
+composer.lock
