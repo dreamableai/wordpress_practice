@@ -1,46 +1,51 @@
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
-    <h2 class="blog-title-standard"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-    <?php get_template_part('includes/templates/post/post-meta'); ?>
-
-    <?php if (has_post_thumbnail()): ?>
-        <div class="sbthumb">
-            <figure><a href="<?php the_permalink(); ?>"
-                    title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail('abcblog_blog_grid_thumb'); ?></a>
-            </figure>
-            <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-                <div class="post-icon"><i class="fa fa-picture-o" aria-hidden="true"></i></div>
-            </a>
-            <?php
-            if (is_sticky()) { ?>
-                <span class="sticky-post"><?php esc_html_e('Featured', 'abcblog'); ?></span>
-            <?php } else { ?>
-            <?php } ?>
-        </div>
-
-    <?php else: ?>
-
-        <?php
-        if (is_sticky()) { ?>
-            <div class="sticky-post-text"><?php esc_html_e('Featured', 'abcblog'); ?></div>
-        <?php } else { ?>
-        <?php } ?>
-
-    <?php endif; ?>
-
-    <div class="sbcontents">
-        <?php if (!has_excerpt()) { ?>
-            <p><?php echo get_excerpt(250); ?>..</p>
-        <?php } else { ?>
-            <?php the_excerpt(); ?>
-        <?php } ?>
+<article id="post-<?php the_ID(); ?>" <?php post_class('blogkit-article'); ?>>
+    <h2 class="blogkit-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+    
+    <div class="blogkit-meta">
+        <span class="blogkit-date"><?php echo get_the_date(); ?></span>
+        <span class="blogkit-author"><?php echo esc_html__('By', 'blogkit'); ?> <?php the_author_posts_link(); ?></span>
+        <?php 
+        $categories = get_the_category();
+        if (!empty($categories)) {
+            echo '<span class="blogkit-category">' . esc_html__('In', 'blogkit') . ' ';
+            $output = array();
+            foreach ($categories as $category) {
+                $output[] = '<a href="' . esc_url(get_category_link($category->term_id)) . '">' . esc_html($category->name) . '</a>';
+            }
+            echo implode(', ', $output) . '</span>';
+        }
+        ?>
     </div>
 
-    <footer class="stndard-blog-footer">
-        <?php get_template_part('includes/templates/social-share-icons'); ?>
-        <div class="blogmore-standard"><a href="<?php the_permalink(); ?>"
-                title="<?php the_title_attribute(); ?>"><?php esc_html_e('Read More', 'abcblog'); ?></a> </div>
-        <div class="clearfix"></div>
-    </footer>
+    <?php if (has_post_thumbnail()): ?>
+        <div class="blogkit-thumb">
+            <figure>
+                <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+                    <?php the_post_thumbnail('medium_large'); ?>
+                </a>
+            </figure>
+            <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+                <div class="blogkit-post-icon"><i class="fa fa-image" aria-hidden="true"></i></div>
+            </a>
+            <?php if (is_sticky()): ?>
+                <span class="blogkit-sticky-post"><?php esc_html_e('Featured', 'blogkit'); ?></span>
+            <?php endif; ?>
+        </div>
+    <?php elseif (is_sticky()): ?>
+        <div class="blogkit-sticky-text"><?php esc_html_e('Featured', 'blogkit'); ?></div>
+    <?php endif; ?>
 
+    <div class="blogkit-content">
+        <?php 
+        if (has_excerpt()) {
+            the_excerpt();
+        } else {
+            echo wp_trim_words(get_the_content(), 25, '...');
+        }
+        ?>
+    </div>
+
+    <footer class="blogkit-footer">
+        <a href="<?php the_permalink(); ?>" class="blogkit-readmore"><?php esc_html_e('Read More', 'blogkit'); ?></a>
+    </footer>
 </article>

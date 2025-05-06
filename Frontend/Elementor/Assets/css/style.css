@@ -22,4 +22,47 @@
   .blogkit-contents .blogmore-standard {
     width: 35%;
   }
+
+/* Classic Blog Grid */
+.blogkit-classic-grid {
+    display: grid;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.blogkit-classic-grid.columns-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.blogkit-classic-grid.columns-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.blogkit-classic-grid.columns-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1024px) {
+    .blogkit-classic-grid.columns-4,
+    .blogkit-classic-grid.columns-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .blogkit-classic-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+.blogkit-classic-grid article {
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 15px;
+    transition: all 0.3s ease;
+}
+
+.blogkit-classic-grid article:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
   

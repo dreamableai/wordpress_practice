@@ -184,7 +184,8 @@ class Configuration
         $namespace_base = '\BlogKit\Frontend\Elementor\Widgets\\';
 
         $widgets = [            
-            'blogkit_animated_text_widget' => 'BlogGrid\Main',
+            'blogkit_blog_grid_widget' => 'BlogGrid\Main',
+            'blogkit_classic_blog_grid' => 'BlogClassicGrid\Main',
            
         ];
 
