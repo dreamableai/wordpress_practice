@@ -87,7 +87,7 @@
   height: auto;
   display: block;
   transition: transform 0.3s ease;
-  max-height: 270px;
+  max-height: 250px;
   object-fit: cover;
 }
 
