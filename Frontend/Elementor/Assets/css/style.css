@@ -1,68 +1,180 @@
-
 /*----------------------Blog Grid--------------------*/
-.blogkit-contents {
-    background: #fff;
-    margin-bottom: 30px;
-  }
-  
-  .blogkit-contents .blog-title-standard {
-    font-size: 18px;
-    padding-top: 17px;
-  }
-  
-  .blogkit-contents .postmeta {
-    padding: 5px 15px 10px 15px;
-    margin: 5px 0 0 0;
-  }
-  
-  .blogkit-contents .abcsocialshare {
-    width: 52%;
-  }
-  
-  .blogkit-contents .blogmore-standard {
-    width: 35%;
-  }
-
-/* Classic Blog Grid */
+/* Blog Grid Container */
 .blogkit-classic-grid {
-    display: grid;
-    gap: 30px;
-    margin-bottom: 30px;
+  display: grid;
+  gap: 30px;
+  margin-bottom: 30px;
 }
 
 .blogkit-classic-grid.columns-2 {
-    grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .blogkit-classic-grid.columns-3 {
-    grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .blogkit-classic-grid.columns-4 {
-    grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 }
 
+/* Article Styles */
+.blogkit-article {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.blogkit-article:hover {
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+}
+
+/* Title Styles */
+.blogkit-title {
+  padding: 20px 20px 10px;
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.blogkit-title a {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.blogkit-title a:hover {
+  color: #007bff;
+}
+
+/* Meta Styles */
+.blogkit-meta {
+  padding: 0 20px 15px;
+  font-size: 14px;
+  color: #666;
+}
+
+.blogkit-meta span {
+  margin-right: 15px;
+}
+
+.blogkit-meta a {
+  color: #666;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.blogkit-meta a:hover {
+  color: #007bff;
+}
+
+/* Thumbnail Styles */
+.blogkit-thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.blogkit-thumb figure {
+  margin: 0;
+  padding: 0;
+}
+
+.blogkit-article .blogkit-thumb figure  a img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+  max-height: 270px;
+  object-fit: cover;
+}
+
+.blogkit-thumb:hover img {
+  transform: scale(1.05);
+}
+
+/* Post Icon */
+.blogkit-post-icon {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+/* Sticky Post */
+.blogkit-sticky-post,
+.blogkit-sticky-text {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #007bff;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+/* Content Styles */
+.blogkit-content {
+  padding: 20px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Footer Styles */
+.blogkit-footer {
+  padding: 0 20px 20px;
+  text-align: right;
+}
+
+.blogkit-readmore {
+  display: inline-block;
+  padding: 8px 20px;
+  background: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.blogkit-readmore:hover {
+  background: #0056b3;
+  color: #fff;
+}
+
+/* Responsive Styles */
 @media (max-width: 1024px) {
-    .blogkit-classic-grid.columns-4,
-    .blogkit-classic-grid.columns-3 {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .blogkit-classic-grid.columns-4,
+  .blogkit-classic-grid.columns-3 {
+      grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .blogkit-title {
+      font-size: 18px;
+  }
 }
 
 @media (max-width: 767px) {
-    .blogkit-classic-grid {
-        grid-template-columns: 1fr !important;
-    }
-}
-
-.blogkit-classic-grid article {
-    background: #fff;
-    border: 1px solid #eee;
-    padding: 15px;
-    transition: all 0.3s ease;
-}
-
-.blogkit-classic-grid article:hover {
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
+  .blogkit-classic-grid {
+      grid-template-columns: 1fr !important;
+  }
   
+  .blogkit-title {
+      font-size: 16px;
+  }
+  
+  .blogkit-meta {
+      font-size: 12px;
+  }
+}

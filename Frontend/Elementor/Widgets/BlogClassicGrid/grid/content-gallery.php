@@ -21,7 +21,7 @@
         <div class="blogkit-thumb">
             <figure>
                 <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-                    <?php the_post_thumbnail('medium_large'); ?>
+                    <?php the_post_thumbnail('medium'); ?>
                 </a>
             </figure>
             <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
