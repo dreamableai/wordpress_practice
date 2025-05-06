@@ -2,7 +2,7 @@
     <h2 class="blogkit-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
     
     <div class="blogkit-meta">
-        <span class="blogkit-date"><?php echo get_the_date(); ?></span>
+        <span class="blogkit-date"><?php the_date(); ?></span>
         <span class="blogkit-author"><?php echo esc_html__('By', 'blogkit'); ?> <?php the_author_posts_link(); ?></span>
         <?php 
         $categories = get_the_category();
@@ -40,7 +40,7 @@
         if (has_excerpt()) {
             the_excerpt();
         } else {
-            echo wp_trim_words(get_the_content(), 25, '...');
+            echo wp_kses_post(wp_trim_words(get_the_content(), 25, '...'));
         }
         ?>
     </div>
