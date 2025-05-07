@@ -15,7 +15,8 @@ use BlogKit\Admin\Assets\SVG;
             foreach ($categories as $category) {
                 $output[] = '<a href="' . esc_url(get_category_link($category->term_id)) . '">' . esc_html($category->name) . '</a>';
             }
-            echo implode(', ', $output) . '</span>';
+            echo wp_kses_post(implode(', ', $output));
+        	echo '</span>';
         }
         ?>
     </div>
@@ -28,7 +29,12 @@ use BlogKit\Admin\Assets\SVG;
                 </a>
             </figure>
             <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-                <div class="blogkit-post-icon"><?php echo SVG::Image(); ?></div>
+                <div class="blogkit-post-icon">
+                <?php 
+                /* translators: SVG icon, safe output. */
+                /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */
+                echo SVG::Image();  
+                ?></div>
             </a>
             <?php if (is_sticky()): ?>
                 <span class="blogkit-sticky-post"><?php esc_html_e('Featured', 'BlogKit'); ?></span>
