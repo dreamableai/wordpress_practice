@@ -120,8 +120,9 @@ class Configuration
      * Admin notice: Elementor not installed.
      */
     public function admin_notice_missing_elementor()
-    {
+    {		
         $message = sprintf(
+			// Translators: 1. Plugin name, 2. Elementor plugin name, 3. Required Elementor version.
             esc_html__('"%1$s" requires "%2$s" version %3$s or greater.', 'BlogKit'),
             esc_html(BLOGKIT_NAME),
             esc_html__('Elementor', 'BlogKit'),
@@ -134,8 +135,9 @@ class Configuration
      * Admin notice: Elementor version too low.
      */
     public function admin_notice_minimum_elementor_version()
-    {
+    {		
         $message = sprintf(
+			// Translators: 1. Plugin name, 2. Elementor plugin name, 3. Required Elementor version.
             esc_html__('"%1$s" requires "%2$s" version %3$s or greater.', 'BlogKit'),
             esc_html(BLOGKIT_NAME),
             esc_html__('Elementor', 'BlogKit'),
@@ -148,8 +150,9 @@ class Configuration
      * Admin notice: PHP version too low.
      */
     public function admin_notice_minimum_php_version()
-    {
+    {		
         $message = sprintf(
+			// Translators: 1. Plugin name, 2. PHP, 3. Required PHP version.
             esc_html__('"%1$s" requires "%2$s" version %3$s or greater.', 'BlogKit'),
             '<strong>' . BLOGKIT_NAME . '</strong>',
             '<strong>' . esc_html__('PHP', 'BlogKit') . '</strong>',
