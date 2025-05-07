@@ -1,3 +1,6 @@
+<?php 
+use BlogKit\Admin\Assets\SVG;
+?>
 <article id="post-<?php the_ID(); ?>" <?php post_class('blogkit-article'); ?>>
     <h2 class="blogkit-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
     
@@ -25,7 +28,7 @@
                 </a>
             </figure>
             <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-                <div class="blogkit-post-icon"><i class="fa fa-video-camera" aria-hidden="true"></i></div>
+                <div class="blogkit-post-icon"><?php echo SVG::Video(); ?></div>
             </a>
             <?php if (is_sticky()): ?>
                 <span class="blogkit-sticky-post"><?php esc_html_e('Featured', 'blogkit'); ?></span>
