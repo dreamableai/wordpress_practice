@@ -6,11 +6,11 @@ use BlogKit\Admin\Assets\SVG;
     
     <div class="blogkit-meta">
         <span class="blogkit-date"><?php the_date(); ?></span>
-        <span class="blogkit-author"><?php echo esc_html__('By', 'blogkit'); ?> <?php the_author_posts_link(); ?></span>
+        <span class="blogkit-author"><?php echo esc_html__('By', 'BlogKit'); ?> <?php the_author_posts_link(); ?></span>
         <?php 
         $categories = get_the_category();
         if (!empty($categories)) {
-            echo '<span class="blogkit-category">' . esc_html__('In', 'blogkit') . ' ';
+            echo '<span class="blogkit-category">' . esc_html__('In', 'BlogKit') . ' ';
             $output = array();
             foreach ($categories as $category) {
                 $output[] = '<a href="' . esc_url(get_category_link($category->term_id)) . '">' . esc_html($category->name) . '</a>';
@@ -31,11 +31,11 @@ use BlogKit\Admin\Assets\SVG;
                 <div class="blogkit-post-icon"><?php echo SVG::Gallery(); ?></div>
             </a>
             <?php if (is_sticky()): ?>
-                <span class="blogkit-sticky-post"><?php esc_html_e('Featured', 'blogkit'); ?></span>
+                <span class="blogkit-sticky-post"><?php esc_html_e('Featured', 'BlogKit'); ?></span>
             <?php endif; ?>
         </div>
     <?php elseif (is_sticky()): ?>
-        <div class="blogkit-sticky-text"><?php esc_html_e('Featured', 'blogkit'); ?></div>
+        <div class="blogkit-sticky-text"><?php esc_html_e('Featured', 'BlogKit'); ?></div>
     <?php endif; ?>
 
     <div class="blogkit-content">
@@ -49,6 +49,6 @@ use BlogKit\Admin\Assets\SVG;
     </div>
 
     <footer class="blogkit-footer">
-        <a href="<?php the_permalink(); ?>" class="blogkit-readmore"><?php esc_html_e('Read More', 'blogkit'); ?></a>
+        <a href="<?php the_permalink(); ?>" class="blogkit-readmore"><?php esc_html_e('Read More', 'BlogKit'); ?></a>
     </footer>
 </article>

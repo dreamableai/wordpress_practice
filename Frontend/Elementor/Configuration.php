@@ -122,9 +122,9 @@ class Configuration
     public function admin_notice_missing_elementor()
     {
         $message = sprintf(
-            esc_html__('"%1$s" requires "%2$s" version %3$s or greater.', 'blogkit'),
+            esc_html__('"%1$s" requires "%2$s" version %3$s or greater.', 'BlogKit'),
             esc_html(BLOGKIT_NAME),
-            esc_html__('Elementor', 'blogkit'),
+            esc_html__('Elementor', 'BlogKit'),
             esc_html(self::MINIMUM_ELEMENTOR_VERSION)
         );
         printf('<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', wp_kses_post($message));
@@ -136,9 +136,9 @@ class Configuration
     public function admin_notice_minimum_elementor_version()
     {
         $message = sprintf(
-            esc_html__('"%1$s" requires "%2$s" version %3$s or greater.', 'blogkit'),
+            esc_html__('"%1$s" requires "%2$s" version %3$s or greater.', 'BlogKit'),
             esc_html(BLOGKIT_NAME),
-            esc_html__('Elementor', 'blogkit'),
+            esc_html__('Elementor', 'BlogKit'),
             esc_html(self::MINIMUM_ELEMENTOR_VERSION)
         );
         printf('<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', wp_kses_post($message));
@@ -150,9 +150,9 @@ class Configuration
     public function admin_notice_minimum_php_version()
     {
         $message = sprintf(
-            esc_html__('"%1$s" requires "%2$s" version %3$s or greater.', 'blogkit'),
+            esc_html__('"%1$s" requires "%2$s" version %3$s or greater.', 'BlogKit'),
             '<strong>' . BLOGKIT_NAME . '</strong>',
-            '<strong>' . esc_html__('PHP', 'blogkit') . '</strong>',
+            '<strong>' . esc_html__('PHP', 'BlogKit') . '</strong>',
             esc_html(self::MINIMUM_PHP_VERSION)
         );
         printf('<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', wp_kses_post($message));

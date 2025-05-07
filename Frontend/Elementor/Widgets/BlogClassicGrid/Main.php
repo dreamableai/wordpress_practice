@@ -18,7 +18,7 @@ class Main extends Widget_Base
     }
     public function get_title()
     {
-        return esc_html__('Blog Classic Grid', 'blogkit');
+        return esc_html__('Blog Classic Grid', 'BlogKit');
     }
     public function get_icon()
     {
@@ -26,11 +26,11 @@ class Main extends Widget_Base
     }
     public function get_keywords()
     {
-        return ['blog', 'grid', 'posts', 'blogkit'];
+        return ['blog', 'grid', 'posts', 'BlogKit'];
     }
     public function get_categories()
     {
-        return ['blogkit'];
+        return ['BlogKit'];
     }
 
     /**
@@ -41,7 +41,7 @@ class Main extends Widget_Base
         $this->start_controls_section(
             'basic_grid_settings',
             [
-                'label' => esc_html__('Query', 'blogkit'),
+                'label' => esc_html__('Query', 'BlogKit'),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -49,7 +49,7 @@ class Main extends Widget_Base
         $this->add_control(
             'posts_per_page',
             [
-                'label' => esc_html__('Posts Per Page', 'blogkit'),
+                'label' => esc_html__('Posts Per Page', 'BlogKit'),
                 'type' => Controls_Manager::NUMBER,
                 'default' => 6,
             ]
@@ -58,13 +58,13 @@ class Main extends Widget_Base
         $this->add_control(
             'columns',
             [
-                'label' => esc_html__('Columns', 'blogkit'),
+                'label' => esc_html__('Columns', 'BlogKit'),
                 'type' => Controls_Manager::SELECT,
                 'default' => '3',
                 'options' => [
-                    '2' => esc_html__('2 Columns', 'blogkit'),
-                    '3' => esc_html__('3 Columns', 'blogkit'),
-                    '4' => esc_html__('4 Columns', 'blogkit'),
+                    '2' => esc_html__('2 Columns', 'BlogKit'),
+                    '3' => esc_html__('3 Columns', 'BlogKit'),
+                    '4' => esc_html__('4 Columns', 'BlogKit'),
                 ],
             ]
         );
@@ -72,13 +72,13 @@ class Main extends Widget_Base
         $this->add_control(
             'orderby',
             [
-                'label' => esc_html__('Order By', 'blogkit'),
+                'label' => esc_html__('Order By', 'BlogKit'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'date',
                 'options' => [
-                    'date' => esc_html__('Date', 'blogkit'),
-                    'title' => esc_html__('Title', 'blogkit'),
-                    'rand' => esc_html__('Random', 'blogkit'),
+                    'date' => esc_html__('Date', 'BlogKit'),
+                    'title' => esc_html__('Title', 'BlogKit'),
+                    'rand' => esc_html__('Random', 'BlogKit'),
                 ],
             ]
         );
@@ -86,12 +86,12 @@ class Main extends Widget_Base
         $this->add_control(
             'order',
             [
-                'label' => esc_html__('Order', 'blogkit'),
+                'label' => esc_html__('Order', 'BlogKit'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'DESC',
                 'options' => [
-                    'DESC' => esc_html__('Descending', 'blogkit'),
-                    'ASC' => esc_html__('Ascending', 'blogkit'),
+                    'DESC' => esc_html__('Descending', 'BlogKit'),
+                    'ASC' => esc_html__('Ascending', 'BlogKit'),
                 ],
             ]
         );
@@ -99,7 +99,7 @@ class Main extends Widget_Base
         $this->add_control(
             'category',
             [
-                'label' => esc_html__('Category', 'blogkit'),
+                'label' => esc_html__('Category', 'BlogKit'),
                 'type' => Controls_Manager::SELECT2,
                 'options' => $this->get_blogkit_categories(),
                 'multiple' => true,
@@ -113,7 +113,7 @@ class Main extends Widget_Base
         $this->start_controls_section(
             'section_grid_style',
             [
-                'label' => esc_html__('Grid Item', 'blogkit'),
+                'label' => esc_html__('Grid Item', 'BlogKit'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -121,7 +121,7 @@ class Main extends Widget_Base
         $this->add_control(
             'grid_bg_color',
             [
-                'label' => esc_html__('Background Color', 'blogkit'),
+                'label' => esc_html__('Background Color', 'BlogKit'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .blogkit-article' => 'background-color: {{VALUE}};',
@@ -149,7 +149,7 @@ class Main extends Widget_Base
         $this->add_control(
             'grid_border_radius',
             [
-                'label' => esc_html__('Border Radius', 'blogkit'),
+                'label' => esc_html__('Border Radius', 'BlogKit'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
@@ -164,7 +164,7 @@ class Main extends Widget_Base
         $this->start_controls_section(
             'section_title_style',
             [
-                'label' => esc_html__('Title', 'blogkit'),
+                'label' => esc_html__('Title', 'BlogKit'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -180,7 +180,7 @@ class Main extends Widget_Base
         $this->add_control(
             'title_color',
             [
-                'label' => esc_html__('Color', 'blogkit'),
+                'label' => esc_html__('Color', 'BlogKit'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .blogkit-title a' => 'color: {{VALUE}};',
@@ -191,7 +191,7 @@ class Main extends Widget_Base
         $this->add_control(
             'title_hover_color',
             [
-                'label' => esc_html__('Hover Color', 'blogkit'),
+                'label' => esc_html__('Hover Color', 'BlogKit'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .blogkit-title a:hover' => 'color: {{VALUE}};',
@@ -205,7 +205,7 @@ class Main extends Widget_Base
         $this->start_controls_section(
             'section_meta_style',
             [
-                'label' => esc_html__('Meta', 'blogkit'),
+                'label' => esc_html__('Meta', 'BlogKit'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -221,7 +221,7 @@ class Main extends Widget_Base
         $this->add_control(
             'meta_color',
             [
-                'label' => esc_html__('Color', 'blogkit'),
+                'label' => esc_html__('Color', 'BlogKit'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .blogkit-meta' => 'color: {{VALUE}};',
@@ -232,7 +232,7 @@ class Main extends Widget_Base
         $this->add_control(
             'meta_link_color',
             [
-                'label' => esc_html__('Link Color', 'blogkit'),
+                'label' => esc_html__('Link Color', 'BlogKit'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .blogkit-meta a' => 'color: {{VALUE}};',
@@ -246,7 +246,7 @@ class Main extends Widget_Base
         $this->start_controls_section(
             'section_content_style',
             [
-                'label' => esc_html__('Content', 'blogkit'),
+                'label' => esc_html__('Content', 'BlogKit'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -262,7 +262,7 @@ class Main extends Widget_Base
         $this->add_control(
             'content_color',
             [
-                'label' => esc_html__('Color', 'blogkit'),
+                'label' => esc_html__('Color', 'BlogKit'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .blogkit-content' => 'color: {{VALUE}};',
@@ -276,7 +276,7 @@ class Main extends Widget_Base
         $this->start_controls_section(
             'section_button_style',
             [
-                'label' => esc_html__('Read More Button', 'blogkit'),
+                'label' => esc_html__('Read More Button', 'BlogKit'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -286,14 +286,14 @@ class Main extends Widget_Base
         $this->start_controls_tab(
             'button_normal_tab',
             [
-                'label' => esc_html__('Normal', 'blogkit'),
+                'label' => esc_html__('Normal', 'BlogKit'),
             ]
         );
 
         $this->add_control(
             'button_bg_color',
             [
-                'label' => esc_html__('Background Color', 'blogkit'),
+                'label' => esc_html__('Background Color', 'BlogKit'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .blogkit-readmore' => 'background-color: {{VALUE}};',
@@ -304,7 +304,7 @@ class Main extends Widget_Base
         $this->add_control(
             'button_text_color',
             [
-                'label' => esc_html__('Text Color', 'blogkit'),
+                'label' => esc_html__('Text Color', 'BlogKit'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .blogkit-readmore' => 'color: {{VALUE}};',
@@ -317,14 +317,14 @@ class Main extends Widget_Base
         $this->start_controls_tab(
             'button_hover_tab',
             [
-                'label' => esc_html__('Hover', 'blogkit'),
+                'label' => esc_html__('Hover', 'BlogKit'),
             ]
         );
 
         $this->add_control(
             'button_bg_hover_color',
             [
-                'label' => esc_html__('Background Color', 'blogkit'),
+                'label' => esc_html__('Background Color', 'BlogKit'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .blogkit-readmore:hover' => 'background-color: {{VALUE}};',
@@ -335,7 +335,7 @@ class Main extends Widget_Base
         $this->add_control(
             'button_text_hover_color',
             [
-                'label' => esc_html__('Text Color', 'blogkit'),
+                'label' => esc_html__('Text Color', 'BlogKit'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .blogkit-readmore:hover' => 'color: {{VALUE}};',
@@ -350,7 +350,7 @@ class Main extends Widget_Base
         $this->add_control(
             'button_border_radius',
             [
-                'label' => esc_html__('Border Radius', 'blogkit'),
+                'label' => esc_html__('Border Radius', 'BlogKit'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [

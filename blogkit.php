@@ -8,7 +8,7 @@
  * Author URI: https://supreox.com
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: blogkit
+ * Text Domain: BlogKit
  * Domain Path: /languages
  * Requires at least: 5.8
  * Requires PHP: 8.0
@@ -93,7 +93,7 @@ final class BlogKit
      */
     public function register_textdomain()
     {
-        load_plugin_textdomain('blogkit', false, dirname(plugin_basename(__FILE__)) . '/languages');
+        load_plugin_textdomain('BlogKit', false, dirname(plugin_basename(__FILE__)) . '/languages');
     }
 
     /**
