@@ -25,11 +25,5 @@
     "lint:php": "@php ./vendor/bin/parallel-lint --exclude .git --exclude vendor .",
     "make-pot": "wp i18n make-pot . languages/blogkit.pot",
     "lint:autofix": "vendor/bin/phpcbf"
-  },
-  "authors": [
-    {
-      "name": "SupreoX Limited",
-      "homepage": "https://supreox.com"
-    }
-  ]
+  }
 }
