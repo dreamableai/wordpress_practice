@@ -1,11 +1,10 @@
 <?php
 /**
  * Plugin Name: BlogKit
- * Plugin URI: https://supreox.com/blogkit
  * Description: A powerful toolkit for enhancing your WordPress blog with custom features and performance improvements.
  * Version: 1.0.0
- * Author: SupreoX Limited
- * Author URI: https://supreox.com
+ * Author: Md Shamim
+ * Author URI: https://facebook.com/shamim834
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: BlogKit
