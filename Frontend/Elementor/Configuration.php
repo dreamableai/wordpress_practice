@@ -123,9 +123,9 @@ class Configuration
     {		
         $message = sprintf(
 			// Translators: 1. Plugin name, 2. Elementor plugin name, 3. Required Elementor version.
-            esc_html__('"%1$s" requires "%2$s" version %3$s or greater.', 'BlogKit'),
+            esc_html__('"%1$s" requires "%2$s" version %3$s or greater.', 'blogkit'),
             esc_html(BLOGKIT_NAME),
-            esc_html__('Elementor', 'BlogKit'),
+            esc_html__('Elementor', 'blogkit'),
             esc_html(self::MINIMUM_ELEMENTOR_VERSION)
         );
         printf('<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', wp_kses_post($message));
@@ -138,9 +138,9 @@ class Configuration
     {		
         $message = sprintf(
 			// Translators: 1. Plugin name, 2. Elementor plugin name, 3. Required Elementor version.
-            esc_html__('"%1$s" requires "%2$s" version %3$s or greater.', 'BlogKit'),
+            esc_html__('"%1$s" requires "%2$s" version %3$s or greater.', 'blogkit'),
             esc_html(BLOGKIT_NAME),
-            esc_html__('Elementor', 'BlogKit'),
+            esc_html__('Elementor', 'blogkit'),
             esc_html(self::MINIMUM_ELEMENTOR_VERSION)
         );
         printf('<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', wp_kses_post($message));
@@ -153,9 +153,9 @@ class Configuration
     {		
         $message = sprintf(
 			// Translators: 1. Plugin name, 2. PHP, 3. Required PHP version.
-            esc_html__('"%1$s" requires "%2$s" version %3$s or greater.', 'BlogKit'),
+            esc_html__('"%1$s" requires "%2$s" version %3$s or greater.', 'blogkit'),
             '<strong>' . BLOGKIT_NAME . '</strong>',
-            '<strong>' . esc_html__('PHP', 'BlogKit') . '</strong>',
+            '<strong>' . esc_html__('PHP', 'blogkit') . '</strong>',
             esc_html(self::MINIMUM_PHP_VERSION)
         );
         printf('<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', wp_kses_post($message));

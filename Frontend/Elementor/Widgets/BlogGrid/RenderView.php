@@ -41,5 +41,5 @@ if ($query->have_posts()) {
     echo '</div>';
     wp_reset_postdata();
 } else {
-    echo '<p>' . esc_html__('No posts found.', 'BlogKit') . '</p>';
+    echo '<p>' . esc_html__('No posts found.', 'blogkit') . '</p>';
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: BlogKit
+ * Plugin Name: BlogKit - Advanced Blog Elements for Elementor
  * Description: A powerful toolkit for enhancing your WordPress blog with custom features and performance improvements.
  * Version: 1.0.0
  * Author: Md Shamim
@@ -11,7 +11,7 @@
  * Domain Path: /languages
  * Requires at least: 5.8
  * Requires PHP: 8.0
- * namespace: BlogKit
+ * namespace: blogkit
  * Requires Plugins: elementor
  * 
  * @package BlogKit
@@ -63,7 +63,7 @@ final class BlogKit
         define('BLOGKIT_URL', plugin_dir_url(__FILE__));
         define('BLOGKIT_BASENAME', plugin_basename(__FILE__));
         define('BLOGKIT_FILE', __FILE__);
-        define('BLOGKIT_NAME', 'BlogKit');
+        define('BLOGKIT_NAME', 'blogkit');
     }
 
     /**
@@ -92,7 +92,7 @@ final class BlogKit
      */
     public function register_textdomain()
     {
-        load_plugin_textdomain('BlogKit', false, dirname(plugin_basename(__FILE__)) . '/languages');
+        load_plugin_textdomain('blogkit', false, dirname(plugin_basename(__FILE__)) . '/languages');
     }
 
     /**

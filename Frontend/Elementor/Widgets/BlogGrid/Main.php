@@ -17,7 +17,7 @@ class Main extends Widget_Base
 
     public function get_title()
     {
-        return esc_html__('Blog Grid', 'BlogKit');
+        return esc_html__('Blog Grid', 'blogkit');
     }
 
     public function get_icon()
@@ -27,12 +27,12 @@ class Main extends Widget_Base
 
     public function get_categories()
     {
-        return ['BlogKit'];
+        return ['blogkit'];
     }
 
     public function get_keywords()
     {
-        return ['blog', 'grid', 'posts', 'BlogKit'];
+        return ['blog', 'grid', 'posts', 'blogkit'];
     }
 
     public function get_style_depends()
@@ -48,7 +48,7 @@ class Main extends Widget_Base
         $this->start_controls_section(
             'blogkit_blog_grid_settings',
             [
-                'label' => esc_html__('Query', 'BlogKit'),
+                'label' => esc_html__('Query', 'blogkit'),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -56,7 +56,7 @@ class Main extends Widget_Base
         $this->add_control(
             'posts_per_page',
             [
-                'label' => esc_html__('Posts Per Page', 'BlogKit'),
+                'label' => esc_html__('Posts Per Page', 'blogkit'),
                 'type' => Controls_Manager::NUMBER,
                 'default' => 6,
             ]
@@ -65,13 +65,13 @@ class Main extends Widget_Base
         $this->add_control(
             'columns',
             [
-                'label' => esc_html__('Columns', 'BlogKit'),
+                'label' => esc_html__('Columns', 'blogkit'),
                 'type' => Controls_Manager::SELECT,
                 'default' => '3',
                 'options' => [
-                    '2' => esc_html__('2 Columns', 'BlogKit'),
-                    '3' => esc_html__('3 Columns', 'BlogKit'),
-                    '4' => esc_html__('4 Columns', 'BlogKit'),
+                    '2' => esc_html__('2 Columns', 'blogkit'),
+                    '3' => esc_html__('3 Columns', 'blogkit'),
+                    '4' => esc_html__('4 Columns', 'blogkit'),
                 ],
             ]
         );
@@ -79,13 +79,13 @@ class Main extends Widget_Base
         $this->add_control(
             'orderby',
             [
-                'label' => esc_html__('Order By', 'BlogKit'),
+                'label' => esc_html__('Order By', 'blogkit'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'date',
                 'options' => [
-                    'date' => esc_html__('Date', 'BlogKit'),
-                    'title' => esc_html__('Title', 'BlogKit'),
-                    'rand' => esc_html__('Random', 'BlogKit'),
+                    'date' => esc_html__('Date', 'blogkit'),
+                    'title' => esc_html__('Title', 'blogkit'),
+                    'rand' => esc_html__('Random', 'blogkit'),
                 ],
             ]
         );
@@ -93,12 +93,12 @@ class Main extends Widget_Base
         $this->add_control(
             'order',
             [
-                'label' => esc_html__('Order', 'BlogKit'),
+                'label' => esc_html__('Order', 'blogkit'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'DESC',
                 'options' => [
-                    'DESC' => esc_html__('Descending', 'BlogKit'),
-                    'ASC' => esc_html__('Ascending', 'BlogKit'),
+                    'DESC' => esc_html__('Descending', 'blogkit'),
+                    'ASC' => esc_html__('Ascending', 'blogkit'),
                 ],
             ]
         );
@@ -106,7 +106,7 @@ class Main extends Widget_Base
         $this->add_control(
             'category',
             [
-                'label' => esc_html__('Category', 'BlogKit'),
+                'label' => esc_html__('Category', 'blogkit'),
                 'type' => Controls_Manager::SELECT2,
                 'options' => $this->get_blogkit_categories(),
                 'multiple' => true,
@@ -122,7 +122,7 @@ class Main extends Widget_Base
         $this->start_controls_section(
             'blogkit_blog_grid_item_style',
             [
-                'label' => esc_html__('Grid Item', 'BlogKit'),
+                'label' => esc_html__('Grid Item', 'blogkit'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -130,7 +130,7 @@ class Main extends Widget_Base
         $this->add_control(
             'item_padding',
             [
-                'label' => esc_html__('Item Padding', 'BlogKit'),
+                'label' => esc_html__('Item Padding', 'blogkit'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'selectors' => [
                     '{{WRAPPER}} .blogkit-blog-grid-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
