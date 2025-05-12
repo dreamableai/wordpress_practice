@@ -7,7 +7,7 @@
  * Author URI: https://supreox.com
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: BlogKit
+ * Text Domain: blogkit
  * Domain Path: /languages
  * Requires at least: 5.8
  * Requires PHP: 8.0
