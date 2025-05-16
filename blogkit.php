@@ -3,8 +3,8 @@
  * Plugin Name: BlogKit - Advanced Blog Elements for Elementor
  * Description: A powerful toolkit for enhancing your WordPress blog with custom features and performance improvements.
  * Version: 1.0.0
- * Author: SupreoX Limited
- * Author URI: https://supreox.com
+ * Author: MD Shamim
+ * Author URI: https://www.facebook.com/shamim834
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: blogkit
@@ -81,18 +81,9 @@ final class BlogKit
      */
     private function init_hooks()
     {
-        add_action('plugins_loaded', [$this, 'plugin_loaded']);
-        add_action('init', [$this, 'register_textdomain']);
+        add_action('plugins_loaded', [$this, 'plugin_loaded']);       
         register_activation_hook(BLOGKIT_FILE, [$this, 'activate']);
         register_deactivation_hook(BLOGKIT_FILE, [$this, 'deactivate']);
-    }
-
-    /**
-     * Load plugin textdomain.
-     */
-    public function register_textdomain()
-    {
-        load_plugin_textdomain('blogkit', false, dirname(plugin_basename(__FILE__)) . '/languages');
     }
 
     /**
