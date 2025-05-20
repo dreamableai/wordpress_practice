@@ -22,7 +22,7 @@ if (!empty($settings['category'])) {
 $query = new WP_Query($args);
 
 if ($query->have_posts()) :
-    echo '<div class="blogkit-blog-grid-wrapper blogkit-grid-columns-' . esc_attr($settings['columns']) . '">';
+    echo '<div class="blogkit-blog-grid-wrapper blogkit-grid-columns">';
 
     while ($query->have_posts()) : $query->the_post();
         ?>
@@ -42,7 +42,7 @@ if ($query->have_posts()) :
 
                 <div class="postmeta">
                     <span class="posted-on">
-                        <i class="fa fa-calendar"></i> <?php echo get_the_date(); ?>
+                        <i class="fa fa-calendar"></i> <?php the_date(); ?>
                     </span>
                     <span class="posted-by">
                         <i class="fa fa-user"></i> <?php the_author(); ?>

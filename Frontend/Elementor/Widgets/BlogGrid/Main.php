@@ -1,7 +1,8 @@
 <?php
 namespace BlogKit\Frontend\Elementor\Widgets\BlogGrid;
 
-if (!defined('ABSPATH')) exit; // Exit if accessed directly
+if (!defined('ABSPATH'))
+    exit; // Exit if accessed directly
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -62,19 +63,24 @@ class Main extends Widget_Base
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'columns',
             [
                 'label' => esc_html__('Columns', 'blogkit'),
                 'type' => Controls_Manager::SELECT,
                 'default' => '3',
                 'options' => [
+                    '1' => esc_html__('1 Column', 'blogkit'),
                     '2' => esc_html__('2 Columns', 'blogkit'),
                     '3' => esc_html__('3 Columns', 'blogkit'),
                     '4' => esc_html__('4 Columns', 'blogkit'),
                 ],
+                'selectors' => [
+                    '{{WRAPPER}} .blogkit-blog-grid-wrapper' => 'grid-template-columns: repeat({{VALUE}}, 1fr);',
+                ],
             ]
         );
+
 
         $this->add_control(
             'orderby',
@@ -145,6 +151,27 @@ class Main extends Widget_Base
                 'selector' => '{{WRAPPER}} .blogkit-blog-grid-item',
             ]
         );
+        $this->add_control(
+            'item_border_radius',
+            [
+                'label' => esc_html__('Item Border Radius', 'blogkit'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'selectors' => [
+                    '{{WRAPPER}} .blogkit-blog-grid-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'item_background_color',
+            [
+                'label' => esc_html__('Item Background Color', 'blogkit'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .blogkit-blog-grid-item' => 'background-color: {{VALUE}};',
+                ],
+            ]
+        );
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
@@ -155,6 +182,243 @@ class Main extends Widget_Base
         );
 
         $this->end_controls_section();
+        /**
+         * Style section: Thumbnail
+         */
+        $this->start_controls_section(
+            'blogkit_blog_grid_thumb_style',
+            [
+                'label' => esc_html__('Thumbnail', 'blogkit'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'thumb_border_radius',
+            [
+                'label' => esc_html__('Border Radius', 'blogkit'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'selectors' => [
+                    '{{WRAPPER}} .blogkit-blog-grid-item .sbthumb img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
+
+        /**
+         * Style section: Heading
+         */
+        $this->start_controls_section(
+            'blogkit_blog_grid_title_style',
+            [
+                'label' => esc_html__('Heading', 'blogkit'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'heading_color',
+            [
+                'label' => esc_html__('Text Color', 'blogkit'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .blogkit-blog-grid-item .blog-title-standard a' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name' => 'heading_typography',
+                'selector' => '{{WRAPPER}} .blogkit-blog-grid-item .blog-title-standard a',
+            ]
+        );
+
+        $this->end_controls_section();
+
+        /**
+         * Style section: Meta
+         */
+        $this->start_controls_section(
+            'blogkit_blog_grid_meta_style',
+            [
+                'label' => esc_html__('Meta Info', 'blogkit'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'meta_text_color',
+            [
+                'label' => esc_html__('Text Color', 'blogkit'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .blogkit-blog-grid-item .postmeta, {{WRAPPER}} .blogkit-blog-grid-item .postmeta a' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .blogkit-blog-grid-item .postmeta, {{WRAPPER}} .blogkit-blog-grid-item .postmeta i' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name' => 'meta_typography',
+                'selector' => '{{WRAPPER}} .blogkit-blog-grid-item .postmeta',
+            ]
+        );
+
+        $this->end_controls_section();
+
+        /**
+         * Style section: Content
+         */
+        $this->start_controls_section(
+            'blogkit_blog_grid_excerpt_style',
+            [
+                'label' => esc_html__('Content', 'blogkit'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'excerpt_text_color',
+            [
+                'label' => esc_html__('Text Color', 'blogkit'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .blogkit-blog-grid-item .entry-summary' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name' => 'excerpt_typography',
+                'selector' => '{{WRAPPER}} .blogkit-blog-grid-item .entry-summary',
+            ]
+        );
+
+        $this->end_controls_section();
+
+        /**
+         * Style section: Pagination
+         */
+        $this->start_controls_section(
+            'blogkit_blog_grid_pagination_style',
+            [
+                'label' => esc_html__('Pagination', 'blogkit'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+        // Spacing 
+        $this->add_responsive_control(
+            'pagination_spacing',
+            [
+                'label' => esc_html__('Spacing', 'blogkit'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', 'rem'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 100,
+                        'step' => 1,
+                    ],
+                    'em' => [
+                        'min' => 0,
+                        'max' => 10,
+                        'step' => 0.1,
+                    ],
+                    'rem' => [
+                        'min' => 0,
+                        'max' => 10,
+                        'step' => 0.1,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 30,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .blogkit-pagination' => 'margin-top: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        // Typography
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name' => 'pagination_typography',
+                'selector' => '{{WRAPPER}} .blogkit-pagination ul li a, {{WRAPPER}} .blogkit-pagination .page-numbers.current',
+            ]
+        );
+
+        // Text Color
+        $this->add_control(
+            'pagination_text_color',
+            [
+                'label' => esc_html__('Text Color', 'blogkit'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .blogkit-pagination ul li a, {{WRAPPER}} .blogkit-pagination .page-numbers.current' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        // Background Color
+        $this->add_control(
+            'pagination_bg_color',
+            [
+                'label' => esc_html__('Background Color', 'blogkit'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .blogkit-pagination ul' => 'background-color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        // Hover & Current Text Color
+        $this->add_control(
+            'pagination_hover_text_color',
+            [
+                'label' => esc_html__('Hover & Current Text Color', 'blogkit'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .blogkit-pagination ul li a:hover, {{WRAPPER}} .blogkit-pagination .page-numbers.current' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        // Hover & Active Background
+        $this->add_control(
+            'pagination_hover_bg',
+            [
+                'label' => esc_html__('Hover & Current Background', 'blogkit'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .blogkit-pagination ul li a:hover, {{WRAPPER}} .blogkit-pagination .page-numbers.current' => 'background-color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        // Border Radius
+        $this->add_control(
+            'pagination_border_radius',
+            [
+                'label' => esc_html__('Border Radius', 'blogkit'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'selectors' => [
+                    '{{WRAPPER}} .blogkit-pagination ul li a, {{WRAPPER}} .blogkit-pagination .page-numbers.current' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
+
+
     }
 
     /**
