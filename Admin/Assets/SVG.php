@@ -46,10 +46,6 @@ class SVG
         return '<?xml version="1.0" encoding="utf-8"?>
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
      viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-<style type="text/css">
-    .st0{fill:url(#SVGID_1_);}
-    .st1{fill:#FFFFFF;}
-</style>
 <g>
     <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="4.2174" y1="256" x2="507.7826" y2="256">
         <stop offset="0" style="stop-color:#0049E7"/>
