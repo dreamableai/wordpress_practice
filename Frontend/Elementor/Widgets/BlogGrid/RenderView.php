@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 /**
  * Blog Grid Widget View for Elementor
  * Compatible with any theme, styled like abcblog theme
@@ -75,7 +76,7 @@ if ($query->have_posts()) :
     ]);
 
     if ($pagination_links) {
-        echo '<div class="blogkit-pagination">' . $pagination_links . '</div>';
+        echo '<div class="blogkit-pagination">' . wp_kses_post($pagination_links) . '</div>';
     }
 
     wp_reset_postdata();
