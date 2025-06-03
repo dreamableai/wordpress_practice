@@ -65,7 +65,3 @@ Yes, all BlogKit widgets come with extensive styling options in the Elementor ed
 
 = 1.0.0 =
 Initial release of BlogKit plugin.
-
-== Additional Info ==
-
-For more information and support:
