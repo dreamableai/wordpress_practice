@@ -1,5 +1,5 @@
 === BlogKit - Advanced Blog Elements for Elementor ===
-Contributors: mdshamim8834, supreoxltd
+Contributors: supreoxltd
 Tags: elementor, grid, posts, custom post layout, blog design
 Requires at least: 5.8
 Tested up to: 6.8
