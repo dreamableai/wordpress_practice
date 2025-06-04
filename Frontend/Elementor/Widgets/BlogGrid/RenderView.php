@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * Blog Grid Widget View for Elementor
  * Compatible with any theme, styled like abcblog theme
  */
-$settings = $this->get_settings_for_display();
+    $settings = $this->get_settings_for_display();
 // Pagination setup
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
