@@ -274,6 +274,7 @@
   border-radius: 2px;
   transition: all 0.3s ease;
   text-decoration: none;
+  list-style: none;
 }
 
 .blogkit-pagination ul li a, .blogkit-pagination ul li .current {color: #fff;
@@ -311,12 +312,13 @@
 /* card grid  */
 .blogkit-card-grid-wrapper{
   display: grid;
-  gap: 30px;
   margin-bottom: 30px;
 }
+
 .blogkit-card-grid-wrapper .card-header {
   position: relative;
 }
+
 .blogkit-card-grid-wrapper .category {
   position: absolute;
   color: white;
@@ -330,14 +332,9 @@
 }
 
 .blogkit-card-grid-wrapper .card {
-  background: #fff;
-  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
 }
 .blogkit-card-grid-wrapper .card:hover {
-  transform: translateY(-4px);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
 }
 .blogkit-card-grid-wrapper .meta {
@@ -346,12 +343,28 @@
   font-size: 0.8rem;
   color: #777;
   margin-bottom: 10px;
-  gap: 10px;
+  gap: 15px;
 }
+
+.blogkit-card-grid-wrapper .meta span{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+}
+
+
+
+
 .blogkit-card-grid-wrapper .meta img {
   width: 24px;
   height: 24px;
   border-radius: 50%;
+}
+.blogkit-card-grid-wrapper .meta svg {
+  width: 15px;
+  height: 15px;
 }
 
 .blogkit-card-grid-wrapper .card-title {
@@ -361,4 +374,10 @@
 }
 .blogkit-card-grid-wrapper .card-body {
   padding: 20px;
+}
+.blogkit-card-grid-wrapper .card-body .card-excerpt {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

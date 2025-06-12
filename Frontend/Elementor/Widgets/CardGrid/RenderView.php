@@ -1,18 +1,20 @@
 <?php
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if (!defined('ABSPATH'))
+    exit; // Exit if accessed directly
 use BlogKit\Admin\Assets\SVG;
+use Elementor\Icons_Manager;
 /**
  * Blog Grid Widget View for Elementor
  * Compatible with any theme, styled like abcblog theme
  */
 
- $settings = $this->get_settings_for_display();
+$settings = $this->get_settings_for_display();
 
 // Pagination setup
 $paged = 1;
-if ( get_query_var('paged') ) {
+if (get_query_var('paged')) {
     $paged = get_query_var('paged');
-} elseif ( get_query_var('page') ) {
+} elseif (get_query_var('page')) {
     $paged = get_query_var('page');
 }
 
@@ -33,51 +35,73 @@ $query = new WP_Query($args);
 
 
 
-if ($query->have_posts()) :
+if ($query->have_posts()):
     echo '<div class="blogkit-card-grid-wrapper blogkit-grid-columns">';
 
-    while ($query->have_posts()) : $query->the_post();
+    while ($query->have_posts()):
+        $query->the_post();
         ?>
         <div class="card">
-      <div class="card-header">
-        <!-- <img src="image.jpg" alt="Protest Image" /> -->
-        <?php if (has_post_thumbnail()) : ?>
-                <div class="sbthumb">
-                    <a href="<?php the_permalink(); ?>">
-                        <?php the_post_thumbnail('large'); ?>
-                    </a>
+            <div class="card-header">
+                <?php if (has_post_thumbnail()): ?>
+                    <div class="sbthumb">
+                        <a href="<?php the_permalink(); ?>">
+                            <?php the_post_thumbnail('large'); ?>
+                        </a>
+                    </div>
+                <?php endif; ?>
+
+                <?php
+                $categories = get_the_category();
+                if ($categories && !is_wp_error($categories)) {
+                    $first_category = $categories[0];
+                    $category_link = get_category_link($first_category->term_id);
+                    echo '<a href="' . esc_url($category_link) . '" class="category">' . esc_html($first_category->name) . '</a>';
+                }
+                ?>
+
+
+            </div>
+            <div class="card-body">
+                <div class="meta">
+                    <span class="meta-author-name"><?php echo get_avatar(get_the_author_meta('ID')); ?>
+                        <?php the_author(); ?></span>
+                    <span class="meta-date"><?php echo SVG::Calender();
+                    echo get_the_date('M j, Y'); ?> </span>
+                    <span class="meta-comments">
+                        <?php echo SVG::Comments();
+                        comments_number('No Comments', '1', '%'); ?></span>
                 </div>
-            <?php endif; ?>
+                <!-- Title -->
+                <?php
+                if ('yes' === $settings['show_title']) {
+                    $title_tag = $settings['title_tag'];
+                    echo '<a href="' . get_the_permalink() . '"><' . $title_tag . ' class="card-title">' . get_the_title() . '</' . $title_tag . '></a>';
+                }
+                ?>
 
-          <?php 
-            $categories = get_the_category();
-            if($categories && ! is_wp_error($categories)) {
-              $first_category = $categories[0];
-              $category_link = get_category_link($first_category->term_id);
-              echo '<a href="'.esc_url($category_link).'" class="category">'. esc_html($first_category->name) .'</a>';
-            }
-          ?>
 
-        
-      </div>
-      <div class="card-body">
-        <div class="meta">
-          <?php echo get_avatar( get_the_author_meta( 'ID' ) ); ?>
-          <span class="meta-author-name"><?php the_author(); ?></span>
-          <span class="meta-date"><?php echo SVG::Calender(); the_date(); ?> </span>
-          <span class="meta-comments"> <?php echo SVG::Comments(); comments_number('No Comments' , '1' , '%'); ?></span>
+                <?php
+                if ('yes' === $settings['show_excerpt']) {
+                    echo '<p class="card-excerpt">' . get_the_excerpt() . '</p>';
+                }
+
+
+
+                if ('yes' === $settings['show_read_more'] && !empty($settings['read_more_text'])) {
+                    echo '<a href="' . get_the_permalink() . '" class="card-more-link">' . $settings['read_more_text'] . '</a>';
+                }
+                ?>
+
+
+            </div>
         </div>
-        <h3 class="card-title"><?php the_title(); ?></h3>
-        <p class="card-excerpt">Find out how keeping detailed employee records can improve decision-making</p>
-        <a href="<?php the_permalink(); ?>" class="card-more-link">More Details →</a>
-      </div>
-    </div>
         <?php
     endwhile;
 
-    echo '</div>'; // .blogkit-blog-grid-wrapper
+    echo '</div>'; // .blogkit-card-grid-wrapper
 
-// Pagination
+    // Pagination
     $big = 999999999; // need an unlikely integer
     $pagination_links = paginate_links([
         'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
@@ -94,13 +118,10 @@ if ($query->have_posts()) :
     }
 
     wp_reset_postdata();
-else :
+else:
     echo '<p>' . esc_html__('No posts found.', 'blogkit') . '</p>';
 endif;
 
 
 
- ?>
-
-    
-  
+?>
