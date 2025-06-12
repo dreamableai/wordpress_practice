@@ -36,10 +36,6 @@ class Main extends Widget_Base
         return ['blog', 'card', 'grid', 'posts', 'blogkit'];
     }
 
-    public function get_style_depends()
-    {
-        return ['blogkit-blog-grid'];
-    }
 
     /**
      * Register controls.
@@ -149,13 +145,6 @@ class Main extends Widget_Base
         );
 
 
-
-
-
-
-
-
-
         // Title switch control
         $this->add_control(
             'show_title',
@@ -258,13 +247,6 @@ class Main extends Widget_Base
         );
 
         $this->end_controls_section();
-
-
-
-
-
-
-
 
         /**
          * Style section: Grid Item
@@ -401,70 +383,70 @@ class Main extends Widget_Base
         );
 
         $this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
-			[
-				'name' => 'category_typography',
-				'selector' => '{{WRAPPER}} .blogkit-card-grid-wrapper .category',
-			]
-		);
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name' => 'category_typography',
+                'selector' => '{{WRAPPER}} .blogkit-card-grid-wrapper .category',
+            ]
+        );
 
 
-// Padding 
+        // Padding 
         $this->add_responsive_control(
-			'category_padding',
-			[
-				'label' => esc_html__( 'Padding', 'blogkit' ),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
-				'default' => [
-					'top' => 5,
-					'right' => 5,
-					'bottom' => 5,
-					'left' => 5,
-					'unit' => 'px',
-					'isLinked' => true,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .blogkit-card-grid-wrapper .category' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
+            'category_padding',
+            [
+                'label' => esc_html__('Padding', 'blogkit'),
+                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em', 'rem', 'custom'],
+                'default' => [
+                    'top' => 5,
+                    'right' => 5,
+                    'bottom' => 5,
+                    'left' => 5,
+                    'unit' => 'px',
+                    'isLinked' => true,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .blogkit-card-grid-wrapper .category' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
 
-         // Border Radius
+        // Border Radius
         $this->add_responsive_control(
-			'category_radius',
-			[
-				'label' => esc_html__( 'Border Radius', 'blogkit' ),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
-				'default' => [
-					'top' => 5,
-					'right' => 5,
-					'bottom' => 5,
-					'left' => 5,
-					'unit' => 'px',
-					'isLinked' => true,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .blogkit-card-grid-wrapper .category' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
+            'category_radius',
+            [
+                'label' => esc_html__('Border Radius', 'blogkit'),
+                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em', 'rem', 'custom'],
+                'default' => [
+                    'top' => 5,
+                    'right' => 5,
+                    'bottom' => 5,
+                    'left' => 5,
+                    'unit' => 'px',
+                    'isLinked' => true,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .blogkit-card-grid-wrapper .category' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
 
 
         $this->start_controls_tabs(
-	'category_style_tabs'
-);
+            'category_style_tabs'
+        );
 
-$this->start_controls_tab(
-	'category_style_normal_tab',
-	[
-		'label' => esc_html__( 'Normal', 'blogkit' ),
-	]
-);
+        $this->start_controls_tab(
+            'category_style_normal_tab',
+            [
+                'label' => esc_html__('Normal', 'blogkit'),
+            ]
+        );
 
 
-// Text Color
+        // Text Color
         $this->add_control(
             'category_text_color',
             [
@@ -488,16 +470,16 @@ $this->start_controls_tab(
             ]
         );
 
-$this->end_controls_tab();
+        $this->end_controls_tab();
 
-$this->start_controls_tab(
-	'category_style_hover_tab',
-	[
-		'label' => esc_html__( 'Normal', 'blogkit' ),
-	]
-);
+        $this->start_controls_tab(
+            'category_style_hover_tab',
+            [
+                'label' => esc_html__('Normal', 'blogkit'),
+            ]
+        );
 
-// Hover & Current Text Color
+        // Hover & Current Text Color
         $this->add_control(
             'category_hover_text_color',
             [
@@ -521,15 +503,12 @@ $this->start_controls_tab(
             ]
         );
 
-$this->end_controls_tab();
+        $this->end_controls_tab();
 
-$this->end_controls_tabs();
+        $this->end_controls_tabs();
 
 
         $this->end_controls_section();
-
-
-
 
 
         /**
@@ -565,9 +544,6 @@ $this->end_controls_tabs();
         );
 
         $this->end_controls_section();
-
-        
-        
 
         /**
          * Style section: Heading
@@ -633,13 +609,8 @@ $this->end_controls_tabs();
         );
 
         $this->end_controls_tab();
-
         $this->end_controls_tabs();
-
-
-
         $this->end_controls_section();
-
 
 
         /**
@@ -673,8 +644,6 @@ $this->end_controls_tabs();
         );
 
         $this->end_controls_section();
-
-
 
         /**
          * Style section: Read More button
@@ -716,7 +685,6 @@ $this->end_controls_tabs();
                 ],
             ]
         );
-
 
         $this->add_group_control(
             \Elementor\Group_Control_Background::get_type(),
@@ -770,7 +738,6 @@ $this->end_controls_tabs();
 
 
         $this->end_controls_tab();
-
         $this->end_controls_tabs();
 
         // Border 
@@ -785,48 +752,48 @@ $this->end_controls_tabs();
 
         // Border Radius
         $this->add_responsive_control(
-			'btn_border_radius',
-			[
-				'label' => esc_html__( 'Border Radius', 'blogkit' ),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
-				'default' => [
-					'top' => 5,
-					'right' => 5,
-					'bottom' => 5,
-					'left' => 5,
-					'unit' => 'px',
-					'isLinked' => true,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .blogkit-card-grid-wrapper .card-more-link' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
+            'btn_border_radius',
+            [
+                'label' => esc_html__('Border Radius', 'blogkit'),
+                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em', 'rem', 'custom'],
+                'default' => [
+                    'top' => 5,
+                    'right' => 5,
+                    'bottom' => 5,
+                    'left' => 5,
+                    'unit' => 'px',
+                    'isLinked' => true,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .blogkit-card-grid-wrapper .card-more-link' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
 
 
         // Padding 
         $this->add_responsive_control(
-			'btn_padding',
-			[
-				'label' => esc_html__( 'Padding', 'blogkit' ),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
-				'default' => [
-					'top' => 5,
-					'right' => 5,
-					'bottom' => 5,
-					'left' => 5,
-					'unit' => 'px',
-					'isLinked' => true,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .blogkit-card-grid-wrapper .card-more-link' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
+            'btn_padding',
+            [
+                'label' => esc_html__('Padding', 'blogkit'),
+                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em', 'rem', 'custom'],
+                'default' => [
+                    'top' => 5,
+                    'right' => 5,
+                    'bottom' => 5,
+                    'left' => 5,
+                    'unit' => 'px',
+                    'isLinked' => true,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .blogkit-card-grid-wrapper .card-more-link' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
 
-        
+
 
         $this->end_controls_section();
 
@@ -886,17 +853,17 @@ $this->end_controls_tabs();
 
 
         $this->start_controls_tabs(
-	'pagination_style_tabs'
-);
+            'pagination_style_tabs'
+        );
 
-$this->start_controls_tab(
-	'pagination_style_normal_tab',
-	[
-		'label' => esc_html__( 'Normal', 'blogkit' ),
-	]
-);
+        $this->start_controls_tab(
+            'pagination_style_normal_tab',
+            [
+                'label' => esc_html__('Normal', 'blogkit'),
+            ]
+        );
 
-// Text Color
+        // Text Color
         $this->add_control(
             'pagination_text_color',
             [
@@ -921,26 +888,19 @@ $this->start_controls_tab(
         );
 
 
-$this->end_controls_tab();
+        $this->end_controls_tab();
 
-$this->start_controls_tab(
-	'pagination_style_hover_tab',
-	[
-		'label' => esc_html__( 'Hover', 'blogkit' ),
-	]
-);
+        $this->start_controls_tab(
+            'pagination_style_hover_tab',
+            [
+                'label' => esc_html__('Hover', 'blogkit'),
+            ]
+        );
 
+        $this->end_controls_tab();
 
+        $this->end_controls_tabs();
 
-$this->end_controls_tab();
-
-$this->end_controls_tabs();
-
-
-
-
-        
-        
 
         // Border Radius
         $this->add_responsive_control(
