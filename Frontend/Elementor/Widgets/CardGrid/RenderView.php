@@ -18,7 +18,7 @@ if (get_query_var('paged')) {
     $paged = get_query_var('page');
 }
 
-
+// Posts Query 
 $args = [
     'post_type' => 'post',
     'posts_per_page' => $settings['posts_per_page'],
@@ -41,8 +41,10 @@ if ($query->have_posts()):
     while ($query->have_posts()):
         $query->the_post();
         ?>
+        <!-- single blog -->
         <div class="card">
             <div class="card-header">
+                <!-- Thumbnail -->
                 <?php if (has_post_thumbnail()): ?>
                     <div class="sbthumb">
                         <a href="<?php the_permalink(); ?>">
@@ -50,25 +52,24 @@ if ($query->have_posts()):
                         </a>
                     </div>
                 <?php endif; ?>
-
+                <!-- Category Button -->
                 <?php
-                if ( 'yes' === $settings['show_category'] ) {
+                if ('yes' === $settings['show_category']) {
 
                     $categories = get_the_category();
-                if ($categories && !is_wp_error($categories)) {
-                    $first_category = $categories[0];
-                    $category_link = get_category_link($first_category->term_id);
-                    echo '<a href="' . esc_url($category_link) . '" class="category">' . esc_html($first_category->name) . '</a>';
+                    if ($categories && !is_wp_error($categories)) {
+                        $first_category = $categories[0];
+                        // Getting the first category name 
+                        $category_link = get_category_link($first_category->term_id);
+                        echo '<a href="' . esc_url($category_link) . '" class="category">' . esc_html($first_category->name) . '</a>';
+                    }
                 }
-		}
 
-
-                
                 ?>
-
 
             </div>
             <div class="card-body">
+                <!-- Post Meta Data -->
                 <div class="meta">
                     <span class="meta-author-name"><?php echo get_avatar(get_the_author_meta('ID')); ?>
                         <?php the_author(); ?></span>
@@ -78,7 +79,7 @@ if ($query->have_posts()):
                         <?php echo SVG::Comments();
                         comments_number('No Comments', '1', '%'); ?></span>
                 </div>
-                <!-- Title -->
+                 <!-- Checking and rendering post title from switch  -->
                 <?php
                 if ('yes' === $settings['show_title']) {
                     $title_tag = $settings['title_tag'];
@@ -86,14 +87,12 @@ if ($query->have_posts()):
                 }
                 ?>
 
-
+               <!-- Checking and rendering post excerpt from switch  -->
                 <?php
                 if ('yes' === $settings['show_excerpt']) {
                     echo '<p class="card-excerpt">' . get_the_excerpt() . '</p>';
                 }
-
-
-
+                // Checking and rendering Read More button from switch 
                 if ('yes' === $settings['show_read_more'] && !empty($settings['read_more_text'])) {
                     echo '<a href="' . get_the_permalink() . '" class="card-more-link">' . $settings['read_more_text'] . '</a>';
                 }
