@@ -312,7 +312,6 @@
 /* card grid  */
 .blogkit-card-grid-wrapper{
   display: grid;
-  margin-bottom: 30px;
 }
 
 .blogkit-card-grid-wrapper .card-header {
@@ -334,16 +333,11 @@
 .blogkit-card-grid-wrapper .card {
   overflow: hidden;
 }
-.blogkit-card-grid-wrapper .card:hover {
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
-}
 .blogkit-card-grid-wrapper .meta {
   display: flex;
   align-items: center;
-  font-size: 0.8rem;
-  color: #777;
   margin-bottom: 10px;
-  gap: 15px;
+  gap: 10px;
 }
 
 .blogkit-card-grid-wrapper .meta span{
@@ -368,8 +362,6 @@
 }
 
 .blogkit-card-grid-wrapper .card-title {
-  font-size: 1rem;
-  color: #111;
   margin-bottom: 10px;
 }
 .blogkit-card-grid-wrapper .card-body {

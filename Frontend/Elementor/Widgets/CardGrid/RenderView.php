@@ -52,12 +52,18 @@ if ($query->have_posts()):
                 <?php endif; ?>
 
                 <?php
-                $categories = get_the_category();
+                if ( 'yes' === $settings['show_category'] ) {
+
+                    $categories = get_the_category();
                 if ($categories && !is_wp_error($categories)) {
                     $first_category = $categories[0];
                     $category_link = get_category_link($first_category->term_id);
                     echo '<a href="' . esc_url($category_link) . '" class="category">' . esc_html($first_category->name) . '</a>';
                 }
+		}
+
+
+                
                 ?>
 
 
