@@ -189,6 +189,7 @@ class Configuration
         $widgets = [            
             'blogkit_blog_grid_widget' => 'BlogGrid\Main',
             'blogkit_classic_blog_grid' => 'BlogClassicGrid\Main',
+            'blogkit_card_grid' => 'CardGrid\Main',
            
         ];
 
