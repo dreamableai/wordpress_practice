@@ -11,7 +11,7 @@ class CustomIcons
 {
     public function __construct()
     {
-        add_action('elementor/editor/before_enqueue_scripts', [$this, 'enqueue_icons']);
+        add_action('elementor/editor/after_enqueue_styles', [$this, 'enqueue_icons']);
     }
 
     public function enqueue_icons()
@@ -34,7 +34,6 @@ class CustomIcons
         }
 
         $final_css = implode("\n", $styles);
-
        
         wp_add_inline_style('elementor-editor', $final_css);
     }
@@ -44,7 +43,7 @@ class CustomIcons
         $clean = preg_replace('/\s+/', ' ', $svg);
         $encoded = rawurlencode($clean);
 
-        return ".elementor-widget-icon.{$class}:before {
+        return ".{$class}:before {
             content: '';
             display: inline-block;
             width: 20px;
