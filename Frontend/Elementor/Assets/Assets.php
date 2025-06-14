@@ -68,7 +68,7 @@ class Assets
     public function enqueue_styles()
     {
         wp_enqueue_style('blogkit-elementor-style', BLOGKIT_ELEMENTOR_ASSETS . "/css/style.css", [], BLOGKIT_VERSION);
-        wp_enqueue_style('blogkit-style-2', BLOGKIT_ELEMENTOR_ASSETS . "/css/style2.css", [], BLOGKIT_VERSION);
+        wp_register_style('blogkit-style-2', BLOGKIT_ELEMENTOR_ASSETS . "/css/style2.css", [], BLOGKIT_VERSION);
     }
 
 
