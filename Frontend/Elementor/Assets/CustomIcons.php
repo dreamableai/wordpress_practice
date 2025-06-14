@@ -11,7 +11,7 @@ class CustomIcons
 {
     public function __construct()
     {
-        add_action('elementor/editor/after_enqueue_styles', [$this, 'enqueue_icons']);
+        add_action('elementor/editor/before_enqueue_scripts', [$this, 'enqueue_icons']);
     }
 
     public function enqueue_icons()
