@@ -17,6 +17,7 @@ if (!defined('ABSPATH')) {
 }
 
 use BlogKit\Frontend\Elementor\Assets\Assets;
+use BlogKit\Frontend\Elementor\Assets\CustomIcons;
 
 /**
  * Class Configuration
@@ -29,6 +30,8 @@ use BlogKit\Frontend\Elementor\Assets\Assets;
 class Configuration
 {
     protected $assets;
+    protected $custom_icons;
+ 
 
     /**
      * Plugin version.
@@ -167,6 +170,7 @@ class Configuration
     public function classes_init()
     {   
         $this->assets = new Assets();
+        new \BlogKit\Frontend\Elementor\Assets\CustomIcons(); // ✅ Load icon styles
     }
 
     /**
@@ -190,6 +194,7 @@ class Configuration
             'blogkit_blog_grid_widget' => 'BlogGrid\Main',
             'blogkit_classic_blog_grid' => 'BlogClassicGrid\Main',    
             'blogkit_card_grid' => 'CardGrid\Main',
+            'blogkit_taxonomy_list' => 'TaxonomyList\Main',
            
         ];
 

@@ -23,7 +23,7 @@ class Main extends Widget_Base
 
     public function get_icon()
     {
-        return 'eicon-posts-grid blogkit-icon';
+        return 'blogkit-icon-calendar blogkit-icon';
     }
 
     public function get_categories()
