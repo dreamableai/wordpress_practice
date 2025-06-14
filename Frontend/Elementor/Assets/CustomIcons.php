@@ -35,9 +35,8 @@ class CustomIcons
 
         $final_css = implode("\n", $styles);
 
-        wp_register_style('blogkit-editor-icons', false);
-        wp_enqueue_style('blogkit-editor-icons');
-        wp_add_inline_style('blogkit-editor-icons', $final_css);
+       
+        wp_add_inline_style('elementor-editor', $final_css);
     }
 
     protected function generate_widget_icon_css($class, $svg)

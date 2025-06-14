@@ -170,7 +170,7 @@ class Configuration
     public function classes_init()
     {   
         $this->assets = new Assets();
-        new \BlogKit\Frontend\Elementor\Assets\CustomIcons(); // ✅ Load icon styles
+        $this->custom_icons = new CustomIcons();
     }
 
     /**
