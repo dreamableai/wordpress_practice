@@ -55,6 +55,31 @@ class Main extends Widget_Base
         );
 
 
+        $taxonomies = get_taxonomies(['public' => true], 'objects');
+        $options = [];
+    
+        foreach ($taxonomies as $taxonomy) {
+            $post_types = $taxonomy->object_type;
+            $post_type_labels = array_map(function ($pt) {
+                $obj = get_post_type_object($pt);
+                return $obj ? $obj->labels->singular_name : $pt;
+            }, $post_types);
+    
+            $post_type_list = implode(', ', $post_type_labels);
+            $label = sprintf('%s (%s)', $taxonomy->label, $post_type_list);
+            $options[$taxonomy->name] = $label;
+        }
+        $this->add_control(
+            'selected_taxonomy',
+            [
+                'label' => esc_html__('Select Taxonomy', 'blogkit'),
+                'type' => Controls_Manager::SELECT,
+                'options' => $options,
+                'default' => 'category',
+                'label_block' => true,
+            ]
+        );
+
         $this->end_controls_section();
 
 
