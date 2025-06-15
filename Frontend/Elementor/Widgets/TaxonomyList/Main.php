@@ -57,14 +57,14 @@ class Main extends Widget_Base
 
         $taxonomies = get_taxonomies(['public' => true], 'objects');
         $options = [];
-    
+
         foreach ($taxonomies as $taxonomy) {
             $post_types = $taxonomy->object_type;
             $post_type_labels = array_map(function ($pt) {
                 $obj = get_post_type_object($pt);
                 return $obj ? $obj->labels->singular_name : $pt;
             }, $post_types);
-    
+
             $post_type_list = implode(', ', $post_type_labels);
             $label = sprintf('%s (%s)', $taxonomy->label, $post_type_list);
             $options[$taxonomy->name] = $label;
@@ -80,7 +80,196 @@ class Main extends Widget_Base
             ]
         );
 
+        $this->end_controls_section(); // End: General Settings
+
+        $this->start_controls_section(
+            'style_section_box',
+            [
+                'label' => esc_html__('Box Style', 'blogkit'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_responsive_control(
+            'box_padding',
+            [
+                'label' => esc_html__('Padding', 'blogkit'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .blogkit-taxonomy-list-area' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'box_margin',
+            [
+                'label' => esc_html__('Margin', 'blogkit'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .blogkit-taxonomy-list-area' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'box_bg_color',
+            [
+                'label' => esc_html__('Background Color', 'blogkit'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .blogkit-taxonomy-list-area' => 'background-color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name' => 'box_border',
+                'selector' => '{{WRAPPER}} .blogkit-taxonomy-list-area',
+            ]
+        );
+
+        $this->add_responsive_control(
+            'box_border_radius',
+            [
+                'label' => esc_html__('Border Radius', 'blogkit'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .blogkit-taxonomy-list-area' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'box_shadow',
+                'selector' => '{{WRAPPER}} .blogkit-taxonomy-list-area',
+            ]
+        );
+
         $this->end_controls_section();
+
+
+        $this->start_controls_section(
+            'style_section_heading',
+            [
+                'label' => esc_html__('Heading', 'blogkit'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+        $this->add_control(
+            'heading_color',
+            [
+                'label' => esc_html__('Heading Color', 'blogkit'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .blogkit-taxonomy-heading h3' => 'color: {{VALUE}}',
+                ],
+            ]
+        );
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name' => 'heading_typography',
+                'selector' => '{{WRAPPER}} .blogkit-taxonomy-heading h3',
+            ]
+        );
+        $this->end_controls_section();
+
+        // Taxonomy Item Styles
+        $this->start_controls_section(
+            'style_section_taxonomies',
+            [
+                'label' => esc_html__('Taxonomy Items', 'blogkit'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'item_bg_color',
+            [
+                'label' => esc_html__('Item Background', 'blogkit'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .blogkit-single-taxonomy,{{WRAPPER}} .blogkit-single-taxonomy a' => 'background-color: {{VALUE}}',
+                ],
+            ]
+        );
+        $this->add_control(
+            'item_spacing',
+            [
+                'label' => esc_html__('Spacing Between Items', 'blogkit'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 50,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} blogkit-taxonomy-list' => 'gap: {{SIZE}}{{UNIT}}',
+                ],
+            ]
+        );
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name' => 'item_border',
+                'selector' => '{{WRAPPER}} .blogkit-single-taxonomy',
+            ]
+        );
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'item_box_shadow',
+                'selector' => '{{WRAPPER}} .blogkit-single-taxonomy',
+            ]
+        );
+        $this->end_controls_section();
+
+        // Taxonomy Text Styles
+        $this->start_controls_section(
+            'style_section_text',
+            [
+                'label' => esc_html__('Text', 'blogkit'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+        $this->add_control(
+            'term_color',
+            [
+                'label' => esc_html__('Name Color', 'blogkit'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .blogkit-taxonomy-name' => 'color: {{VALUE}}',
+                ],
+            ]
+        );
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name' => 'term_typography',
+                'selector' => '{{WRAPPER}} .blogkit-taxonomy-name, {{WRAPPER}} .blogkit-taxonomy-count',
+            ]
+        );
+        $this->add_control(
+            'count_color',
+            [
+                'label' => esc_html__('Count Color', 'blogkit'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .blogkit-taxonomy-count' => 'color: {{VALUE}}',
+                ],
+            ]
+        );
+        $this->end_controls_section();
+
 
 
     }

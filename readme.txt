@@ -54,6 +54,8 @@ Yes, all BlogKit widgets come with extensive styling options in the Elementor ed
 
 
 == Changelog ==
+= 1.1.0 =
+* Taxonomy List Widgets added
 
 = 1.0.0 =
 * Initial release
