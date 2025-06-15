@@ -46,6 +46,8 @@ class Main extends Widget_Base
      */
     protected function register_controls()
     {
+
+        // General Settings
         $this->start_controls_section(
             'blogkit_taxonomy_list_settings',
             [
@@ -54,10 +56,10 @@ class Main extends Widget_Base
             ]
         );
 
-
+        // get all taxonomies
         $taxonomies = get_taxonomies(['public' => true], 'objects');
         $options = [];
-
+        // get all taxonomies and their post types
         foreach ($taxonomies as $taxonomy) {
             $post_types = $taxonomy->object_type;
             $post_type_labels = array_map(function ($pt) {
@@ -69,19 +71,23 @@ class Main extends Widget_Base
             $label = sprintf('%s (%s)', $taxonomy->label, $post_type_list);
             $options[$taxonomy->name] = $label;
         }
+
+        // taxonomy field
         $this->add_control(
             'selected_taxonomy',
             [
                 'label' => esc_html__('Select Taxonomy', 'blogkit'),
                 'type' => Controls_Manager::SELECT,
                 'options' => $options,
-                'default' => 'category',
+                'default' => 'category', //add a default option for taxonomies field
                 'label_block' => true,
             ]
         );
 
         $this->end_controls_section(); // End: General Settings
 
+
+        // Box Style Settings
         $this->start_controls_section(
             'style_section_box',
             [
@@ -89,24 +95,8 @@ class Main extends Widget_Base
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
-        $this->add_responsive_control(
-            'box_width',
-            [
-                'label' => esc_html__('Box Width', 'blogkit'),
-                'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px', '%', 'em', 'vw'],
-                'range' => [
-                    'px' => ['min' => 100, 'max' => 1600],
-                    '%'  => ['min' => 10, 'max' => 100],
-                    'em' => ['min' => 10, 'max' => 100],
-                    'vw' => ['min' => 10, 'max' => 100],
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .blogkit-taxonomy-list-area' => 'width: {{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
-        
+
+        // box padding
         $this->add_responsive_control(
             'box_padding',
             [
@@ -119,6 +109,7 @@ class Main extends Widget_Base
             ]
         );
 
+        // box margin
         $this->add_responsive_control(
             'box_margin',
             [
@@ -131,6 +122,7 @@ class Main extends Widget_Base
             ]
         );
 
+        // box background
         $this->add_control(
             'box_bg_color',
             [
@@ -142,6 +134,7 @@ class Main extends Widget_Base
             ]
         );
 
+        // box border
         $this->add_group_control(
             Group_Control_Border::get_type(),
             [
@@ -150,6 +143,7 @@ class Main extends Widget_Base
             ]
         );
 
+        // box border radius
         $this->add_responsive_control(
             'box_border_radius',
             [
@@ -162,6 +156,7 @@ class Main extends Widget_Base
             ]
         );
 
+        // box box shadow
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
             [
@@ -170,9 +165,10 @@ class Main extends Widget_Base
             ]
         );
 
-        $this->end_controls_section();
+        $this->end_controls_section(); // End: Box Style Settings
 
 
+        // Heading Styles
         $this->start_controls_section(
             'style_section_heading',
             [
@@ -180,6 +176,20 @@ class Main extends Widget_Base
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
+
+        // heading padding
+        $this->add_responsive_control(
+            'heading_padding',
+            [
+                'label' => esc_html__('Padding', 'blogkit'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .blogkit-taxonomy-heading' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+        // heading color
         $this->add_control(
             'heading_color',
             [
@@ -190,6 +200,7 @@ class Main extends Widget_Base
                 ],
             ]
         );
+        // heading typography
         $this->add_group_control(
             \Elementor\Group_Control_Typography::get_type(),
             [
@@ -197,7 +208,7 @@ class Main extends Widget_Base
                 'selector' => '{{WRAPPER}} .blogkit-taxonomy-heading h3',
             ]
         );
-        $this->end_controls_section();
+        $this->end_controls_section(); // End: Heading Styles
 
         // Taxonomy Item Styles
         $this->start_controls_section(
@@ -208,6 +219,19 @@ class Main extends Widget_Base
             ]
         );
 
+        // taxonomy item padding
+        $this->add_responsive_control(
+            'item_padding',
+            [
+                'label' => esc_html__('Padding', 'blogkit'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .blogkit-single-taxonomy a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+        // taxonomy item background color
         $this->add_control(
             'item_bg_color',
             [
@@ -218,6 +242,8 @@ class Main extends Widget_Base
                 ],
             ]
         );
+
+        // taxonomy item Gap
         $this->add_control(
             'item_spacing',
             [
@@ -234,6 +260,8 @@ class Main extends Widget_Base
                 ],
             ]
         );
+
+        // taxonomy item border
         $this->add_group_control(
             Group_Control_Border::get_type(),
             [
@@ -241,6 +269,20 @@ class Main extends Widget_Base
                 'selector' => '{{WRAPPER}} .blogkit-single-taxonomy',
             ]
         );
+        // taxonomy item border radius
+        $this->add_responsive_control(
+            'item_border_radius',
+            [
+                'label' => esc_html__('Border Radius', 'blogkit'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
+                    '{{WRAPPER}}.blogkit-single-taxonomy' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        // taxonomy item box shadow
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
             [
@@ -248,7 +290,7 @@ class Main extends Widget_Base
                 'selector' => '{{WRAPPER}} .blogkit-single-taxonomy',
             ]
         );
-        $this->end_controls_section();
+        $this->end_controls_section(); // End: Taxonomy Item Styles
 
         // Taxonomy Text Styles
         $this->start_controls_section(
@@ -258,6 +300,7 @@ class Main extends Widget_Base
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
+        // taxonomy text color
         $this->add_control(
             'term_color',
             [
@@ -268,6 +311,7 @@ class Main extends Widget_Base
                 ],
             ]
         );
+        // taxonomy text typography
         $this->add_group_control(
             \Elementor\Group_Control_Typography::get_type(),
             [
@@ -275,6 +319,7 @@ class Main extends Widget_Base
                 'selector' => '{{WRAPPER}} .blogkit-taxonomy-name, {{WRAPPER}} .blogkit-taxonomy-count',
             ]
         );
+        // taxonomy count color
         $this->add_control(
             'count_color',
             [
@@ -285,9 +330,7 @@ class Main extends Widget_Base
                 ],
             ]
         );
-        $this->end_controls_section();
-
-
+        $this->end_controls_section(); // End: Taxonomy Text Styles
 
     }
 
