@@ -89,7 +89,24 @@ class Main extends Widget_Base
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
-
+        $this->add_responsive_control(
+            'box_width',
+            [
+                'label' => esc_html__('Box Width', 'blogkit'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', '%', 'em', 'vw'],
+                'range' => [
+                    'px' => ['min' => 100, 'max' => 1600],
+                    '%'  => ['min' => 10, 'max' => 100],
+                    'em' => ['min' => 10, 'max' => 100],
+                    'vw' => ['min' => 10, 'max' => 100],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .blogkit-taxonomy-list-area' => 'width: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+        
         $this->add_responsive_control(
             'box_padding',
             [
