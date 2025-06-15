@@ -25,6 +25,7 @@ class CustomIcons
             'blogkit-icon-comments' => SVG::Comments(),
             'blogkit-icon-calendar' => SVG::Calender(),
             'blogkit-icon-link'     => SVG::Link(),
+            'blogkit-taxonomy'     => SVG::Taxonomy(),
         ];
 
         $styles = [];
@@ -52,6 +53,7 @@ class CustomIcons
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
+            filter: brightness(0) invert(1); 
         }";
     }
 }
