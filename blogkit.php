@@ -2,7 +2,7 @@
 /**
  * Plugin Name: BlogKit - Advanced Blog Elements for Elementor
  * Description: A powerful toolkit for enhancing your WordPress blog with custom features and performance improvements.
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author: SupreoX Limited
  * Author URI: https://supreox.com
  * License: GPLv2 or later
