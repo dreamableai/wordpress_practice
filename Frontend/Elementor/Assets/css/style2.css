@@ -55,26 +55,30 @@ Featured and Sidebar
 .blogkit-featured-sidebar-grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-template-rows: auto auto auto;
     gap: 30px;
-}
-
-.blogkit-featured-sidebar-item {
-    display: flex;
-    gap: 15px;
-    background-color: #1a1a2e;
-    padding: 15px;
-    border-radius: 8px;
-    color: #fff;
-}
-
-.blogkit-featured-sidebar-item.is-featured {
+    align-items: start;
+  }
+  
+  /* Featured post */
+  .blogkit-featured-sidebar-item.is-featured {
     grid-column: 1 / 2;
-    grid-row: 1 / 4;
+    display: flex;
     flex-direction: column;
     background-color: #202040;
-}
-
-.blogkit-featured-sidebar-item.is-sidebar:nth-child(n+2) {
+    padding: 20px;
+    height: 100%;
+  }
+  
+  /* Sidebar posts */
+  .blogkit-featured-sidebar-item.is-sidebar {
+    display: flex;
+    gap: 10px;
+    background: #181c2a;
+    padding: 10px;
+    border-radius: 8px;
+  
     grid-column: 2 / 3;
-}
+    /* This is the fix: allow grid to auto-place vertically */
+    grid-row: auto;
+  }
+  
