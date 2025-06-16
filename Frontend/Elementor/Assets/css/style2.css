@@ -52,86 +52,29 @@
 /*----------------------------
 Featured and Sidebar
 ------------------------------*/
-.blogkit-featured-sidebar-widget {
-    display: flex;
-    justify-content: center;
-    padding: 40px 0;
-    background: #121a26;
-    color: #fff;
-}
 .blogkit-featured-sidebar-grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto auto auto;
     gap: 30px;
-    width: 100%;
-    max-width: 1200px;
 }
-.blogkit-featured-sidebar-featured {
-    position: relative;
-    overflow: hidden;
-}
-.blogkit-featured-sidebar-featured-thumb img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 8px;
-}
-.blogkit-featured-sidebar-featured-content {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-}
-.blogkit-featured-sidebar-category-link {
-    background: #1e1e2d;
-    color: #fff;
-    padding: 4px 10px;
-    font-size: 12px;
-    border-radius: 4px;
-    text-decoration: none;
-}
-.blogkit-featured-sidebar-title a {
-    color: #fff;
-    font-size: 24px;
-    font-weight: bold;
-    text-decoration: none;
-}
-.blogkit-featured-sidebar-meta {
-    font-size: 12px;
-    opacity: 0.8;
-}
-.blogkit-featured-sidebar-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
+
 .blogkit-featured-sidebar-item {
     display: flex;
-    gap: 10px;
-}
-.blogkit-featured-sidebar-item-thumb img {
-    width: 100px;
-    height: 70px;
-    object-fit: cover;
-    border-radius: 4px;
-}
-.blogkit-featured-sidebar-item-title a {
-    font-size: 16px;
-    font-weight: 500;
+    gap: 15px;
+    background-color: #1a1a2e;
+    padding: 15px;
+    border-radius: 8px;
     color: #fff;
-    text-decoration: none;
 }
-.blogkit-featured-sidebar-item-meta {
-    font-size: 12px;
-    opacity: 0.7;
+
+.blogkit-featured-sidebar-item.is-featured {
+    grid-column: 1 / 2;
+    grid-row: 1 / 4;
+    flex-direction: column;
+    background-color: #202040;
 }
-.blogkit-featured-sidebar-item-category {
-    margin-right: 8px;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 11px;
-    text-transform: uppercase;
+
+.blogkit-featured-sidebar-item.is-sidebar:nth-child(n+2) {
+    grid-column: 2 / 3;
 }
-.blogkit-cat-sports { background-color: orange; }
-.blogkit-cat-business { background-color: #6a5acd; }
-.blogkit-cat-education { background-color: crimson; }
-.blogkit-cat-medical { background-color: green; }
