@@ -195,6 +195,7 @@ class Configuration
             'blogkit_classic_blog_grid' => 'BlogClassicGrid\Main',    
             'blogkit_card_grid' => 'CardGrid\Main',
             'blogkit_taxonomy_list' => 'TaxonomyList\Main',
+            'blogkit_featured_sidebar' => 'FeaturedSidebar\Main',
            
         ];
 
