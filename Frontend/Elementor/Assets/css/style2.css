@@ -48,37 +48,107 @@
   color: #fff;
 }
 
-
 /*----------------------------
 Featured and Sidebar
 ------------------------------*/
-.blogkit-featured-sidebar-grid {
+.blogkit-fs-widget {
+    padding: 30px 0;
+    color: #fff;
+}
+
+.blogkit-fs-grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
     align-items: start;
-  }
-  
-  /* Featured post */
-  .blogkit-featured-sidebar-item.is-featured {
-    grid-column: 1 / 2;
+}
+
+.blogkit-fs-featured {
+    max-width: 720px;
+    width: 100%;
+    background: transparent;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.blogkit-fs-featured-thumb img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.blogkit-fs-featured-content {
+    margin-top: -100px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.blogkit-fs-category {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 4px 10px;
+    font-size: 12px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.blogkit-fs-title a {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+
+.blogkit-fs-meta {
+    font-size: 12px;
+    color: #ccc;
+    margin-top: 5px;
+}
+
+.blogkit-fs-sidebar {
+    max-width: 360px;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    background-color: #202040;
-    padding: 20px;
-    height: 100%;
-  }
-  
-  /* Sidebar posts */
-  .blogkit-featured-sidebar-item.is-sidebar {
+    gap: 20px;
+}
+
+.blogkit-fs-sidebar-item {
     display: flex;
-    gap: 10px;
-    background: #181c2a;
+    gap: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding: 10px;
-    border-radius: 8px;
-  
-    grid-column: 2 / 3;
-    /* This is the fix: allow grid to auto-place vertically */
-    grid-row: auto;
-  }
-  
+    background: #0d1117;
+}
+
+.blogkit-fs-sidebar-thumb img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.blogkit-fs-sidebar-title a {
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    text-decoration: none;
+}
+
+.blogkit-fs-sidebar-meta {
+    font-size: 12px;
+    color: #ccc;
+    margin-top: 5px;
+}
+
+.blogkit-fs-badge {
+    display: inline-block;
+    font-size: 11px;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-right: 6px;
+}
